@@ -115,12 +115,8 @@
     }
 
     @keyframes floatBubble {
-      0% {
-        transform: translateY(100vh) translateX(0);
-      }
-      100% {
-        transform: translateY(-10vh) translateX(20vw);
-      }
+      0% { transform: translateY(100vh) translateX(0); }
+      100% { transform: translateY(-10vh) translateX(20vw); }
     }
   </style>
 </head>
@@ -165,7 +161,7 @@
   <button id="scrollTopBtn" title="Go to top">⬆️</button>
 
   <script>
-    // Show sections when scrolled into view
+    // Show sections on scroll
     const sections = document.querySelectorAll('section');
     const showSections = () => {
       sections.forEach(sec => {
