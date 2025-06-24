@@ -107,15 +107,20 @@
       height: 50px;
       background-image: url('https://raw.githubusercontent.com/keonedog/keonedog.github.io/main/keonedog-logo.png');
       background-size: cover;
-      opacity: 0.6;
+      opacity: 0.7;
       animation: floatBubble 15s linear infinite;
-      z-index: 1; /* ensures bubbles appear above background */
-      pointer-events: none; /* prevents bubbles from blocking clicks */
+      z-index: 2;
+      pointer-events: none;
+      border-radius: 50%;
     }
 
     @keyframes floatBubble {
-      0% { transform: translateY(100vh) translateX(0); }
-      100% { transform: translateY(-10vh) translateX(20vw); }
+      0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-10vh) translateX(20vw) rotate(360deg);
+      }
     }
   </style>
 </head>
@@ -181,9 +186,14 @@ scrollBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-for (let i = 0; i < 15; i++) {
+for (let i = 0; i < 20; i++) {
   const bubble = document.createElement('div');
   bubble.classList.add('bubble');
+
+  const size = 30 + Math.random() * 50;
+  bubble.style.width = size + 'px';
+  bubble.style.height = size + 'px';
+
   bubble.style.left = Math.random() * 100 + 'vw';
   bubble.style.animationDuration = (10 + Math.random() * 10) + 's';
   document.body.appendChild(bubble);
