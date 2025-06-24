@@ -218,12 +218,14 @@ scrollBtn.addEventListener('click', () => {
 });
 
 // Create floating meme bubbles
+// Create floating meme bubbles
 for (let i = 0; i < 15; i++) {
   const bubble = document.createElement('div');
   bubble.classList.add('bubble');
   bubble.style.left = Math.random() * 100 + 'vw';
   bubble.style.animationDuration = (10 + Math.random() * 10) + 's';
   document.body.appendChild(bubble);
+}
 }
 </script>
 
