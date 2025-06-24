@@ -135,65 +135,32 @@
   </div>
 </header>
 
+<section id="about">
+  <h2>About $KEONEDOG</h2>
+  <p>KEONEDOG isn't just another meme coin — it's a movement. We ride the waves of FOMO, community spirit, and humor. Together, we moon. Together, we laugh. Together, KEONE!</p>
+</section>
 
-  <section id="about">
-    <h2>About $KEONEDOG</h2>
-    <p>KEONEDOG isn't just another meme coin — it's a movement. We ride the waves of FOMO, community spirit, and humor. Together, we moon. Together, we laugh. Together, KEONE!</p>
-  </section>
+<section>
+  <h2>Why Join KEONEDOG?</h2>
+  <ul style="list-style: none; padding: 0;">
+    <li>✅ 100% Community Driven</li>
+    <li>✅ Inspired by Keone & Monad</li>
+    <li>✅ No Presale. No VCs. Just Memes.</li>
+    <li>✅ Let's get rich, KEONE Brothers!</li>
+  </ul>
+</section>
 
-  <section>
-    <h2>Why Join KEONEDOG?</h2>
-    <ul style="list-style: none; padding: 0;">
-      <li>✅ 100% Community Driven</li>
-      <li>✅ Inspired by Keone & Monad</li>
-      <li>✅ No Presale. No VCs. Just Memes.</li>
-      <li>✅ Let's get rich, KEONE Brothers!</li>
-    </ul>
-  </section>
+<section>
+  <h2>Our Mission</h2>
+  <p>To prove that memes, loyalty, and FOMO can shake the crypto space. We build together, we grow together, KEONEDOG forever!</p>
+</section>
 
-  <section>
-    <h2>Our Mission</h2>
-    <p>To prove that memes, loyalty, and FOMO can shake the crypto space. We build together, we grow together, KEONEDOG forever!</p>
-  </section>
+<footer>
+  © 2024 KEONEDOG. Meme coin powered by community memes & Keone energy.
+</footer>
 
-  <footer>
-    © 2024 KEONEDOG. Meme coin powered by community memes & Keone energy.
-  </footer>
+<button id="scrollTopBtn" title="Go to top">⬆️</button>
 
-  <button id="scrollTopBtn" title="Go to top">⬆️</button>
-
-  <script>
-    // Show sections on scroll
-    const sections = document.querySelectorAll('section');
-    const showSections = () => {
-      sections.forEach(sec => {
-        const top = sec.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) {
-          sec.classList.add('visible');
-        }
-      });
-    }
-    window.addEventListener('scroll', showSections);
-    window.addEventListener('load', showSections);
-
-    // Scroll to top button
-    const scrollBtn = document.getElementById('scrollTopBtn');
-    window.addEventListener('scroll', () => {
-      scrollBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
-    });
-    scrollBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Create meme bubbles
-    for (let i = 0; i < 15; i++) {
-      const bubble = document.createElement('div');
-      bubble.classList.add('bubble');
-      bubble.style.left = Math.random() * 100 + 'vw';
-      bubble.style.animationDuration = (10 + Math.random() * 10) + 's';
-      document.body.appendChild(bubble);
-    }
-  </script>
 <script>
 // Show sections on scroll
 const sections = document.querySelectorAll('section');
@@ -218,14 +185,12 @@ scrollBtn.addEventListener('click', () => {
 });
 
 // Create floating meme bubbles
-// Create floating meme bubbles
 for (let i = 0; i < 15; i++) {
   const bubble = document.createElement('div');
   bubble.classList.add('bubble');
   bubble.style.left = Math.random() * 100 + 'vw';
   bubble.style.animationDuration = (10 + Math.random() * 10) + 's';
   document.body.appendChild(bubble);
-}
 }
 </script>
 
