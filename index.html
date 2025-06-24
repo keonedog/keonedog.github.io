@@ -80,7 +80,6 @@
       80% { transform: rotate(3deg); }
     }
 
-    /* Scroll to top button */
     #scrollTopBtn {
       display: none;
       position: fixed;
@@ -102,7 +101,6 @@
       transform: scale(1.2);
     }
 
-    /* Meme bubbles */
     .bubble {
       position: fixed;
       width: 50px;
@@ -111,7 +109,8 @@
       background-size: cover;
       opacity: 0.6;
       animation: floatBubble 15s linear infinite;
-      z-index: 0;
+      z-index: 1; /* ensures bubbles appear above background */
+      pointer-events: none; /* prevents bubbles from blocking clicks */
     }
 
     @keyframes floatBubble {
@@ -162,7 +161,6 @@
 <button id="scrollTopBtn" title="Go to top">⬆️</button>
 
 <script>
-// Show sections on scroll
 const sections = document.querySelectorAll('section');
 const showSections = () => {
   sections.forEach(section => {
@@ -175,7 +173,6 @@ const showSections = () => {
 window.addEventListener('scroll', showSections);
 window.addEventListener('load', showSections);
 
-// Scroll to top button
 const scrollBtn = document.getElementById('scrollTopBtn');
 window.addEventListener('scroll', () => {
   scrollBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
@@ -184,7 +181,6 @@ scrollBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Create floating meme bubbles
 for (let i = 0; i < 15; i++) {
   const bubble = document.createElement('div');
   bubble.classList.add('bubble');
