@@ -194,6 +194,38 @@
       document.body.appendChild(bubble);
     }
   </script>
+<script>
+// Show sections on scroll
+const sections = document.querySelectorAll('section');
+const showSections = () => {
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      section.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('scroll', showSections);
+window.addEventListener('load', showSections);
+
+// Scroll to top button
+const scrollBtn = document.getElementById('scrollTopBtn');
+window.addEventListener('scroll', () => {
+  scrollBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
+});
+scrollBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Create floating meme bubbles
+for (let i = 0; i < 15; i++) {
+  const bubble = document.createElement('div');
+  bubble.classList.add('bubble');
+  bubble.style.left = Math.random() * 100 + 'vw';
+  bubble.style.animationDuration = (10 + Math.random() * 10) + 's';
+  document.body.appendChild(bubble);
+}
+</script>
 
 </body>
 </html>
