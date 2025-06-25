@@ -8,15 +8,25 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+      background: black;
       color: #fff;
       text-align: center;
       overflow-x: hidden;
     }
 
+    #backgroundVideo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -10;
+    }
+
     header {
       padding: 80px 20px;
-      background: #222;
+      background: rgba(34, 34, 34, 0.8);
       animation: shake 1.5s ease forwards;
     }
 
@@ -125,6 +135,11 @@
   </style>
 </head>
 <body>
+
+<!-- Nền động vũ trụ -->
+<video autoplay muted loop playsinline id="backgroundVideo">
+  <source src="background.webm" type="video/webm">
+</video>
 
 <header>
   <img src="https://raw.githubusercontent.com/keonedog/keonedog.github.io/main/keonedog-logo.png" alt="KEONEDOG Logo" style="width:120px; margin-bottom:20px;">
