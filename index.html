@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KEONEDOG - Meme Coin Revolution</title>
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
       font-family: Arial, sans-serif;
       background: black;
       color: #fff;
@@ -14,35 +18,52 @@
       overflow-x: hidden;
     }
 
+    /* HERO SECTION */
+    #hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+    }
+
     #backgroundVideo {
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
       min-width: 100%;
       min-height: 100%;
       object-fit: cover;
-      z-index: -10;
+      z-index: -1;
     }
 
-    header {
-      padding: 80px 20px;
-      background: rgba(34, 34, 34, 0.8);
-      animation: shake 1.5s ease forwards;
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
     }
 
-    header h1 {
+    .hero-content img {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h1 {
       font-size: 3em;
-      margin-bottom: 10px;
       color: #FFD700;
     }
 
-    header p {
+    .hero-content p {
       font-size: 1.2em;
       color: #ccc;
-    }
-
-    .buttons {
-      margin-top: 30px;
+      max-width: 600px;
+      margin: 20px;
     }
 
     .buttons a {
@@ -62,10 +83,13 @@
       transform: scale(1.1) rotate(3deg);
     }
 
+    /* CONTENT SECTIONS */
     section {
       padding: 80px 20px;
       max-width: 800px;
       margin: auto;
+      background: black;
+      color: white;
       opacity: 0;
       transform: translateY(30px);
       transition: all 1s ease;
@@ -80,14 +104,7 @@
       padding: 20px;
       font-size: 0.9em;
       color: #555;
-    }
-
-    @keyframes shake {
-      0%, 100% { transform: rotate(0deg); }
-      20% { transform: rotate(-5deg); }
-      40% { transform: rotate(5deg); }
-      60% { transform: rotate(-3deg); }
-      80% { transform: rotate(3deg); }
+      background: black;
     }
 
     #scrollTopBtn {
@@ -110,50 +127,30 @@
     #scrollTopBtn:hover {
       transform: scale(1.2);
     }
-
-    .bubble {
-      position: fixed;
-      width: 50px;
-      height: 50px;
-      background-image: url('https://raw.githubusercontent.com/keonedog/keonedog.github.io/main/keonedog-logo.png');
-      background-size: cover;
-      opacity: 0.7;
-      animation: floatBubble 15s linear infinite;
-      z-index: 2;
-      pointer-events: none;
-      border-radius: 50%;
-    }
-
-    @keyframes floatBubble {
-      0% {
-        transform: translateY(100vh) translateX(0) rotate(0deg);
-      }
-      100% {
-        transform: translateY(-10vh) translateX(20vw) rotate(360deg);
-      }
-    }
   </style>
 </head>
 <body>
 
-<!-- Nền động vũ trụ -->
-<video autoplay muted loop playsinline id="backgroundVideo">
-  <source src="background.webm" type="video/webm">
-</video>
+<!-- HERO SECTION với nền động -->
+<section id="hero">
+  <video autoplay muted loop playsinline id="backgroundVideo">
+    <source src="background.webm" type="video/webm">
+  </video>
 
-<header>
-  <img src="https://raw.githubusercontent.com/keonedog/keonedog.github.io/main/keonedog-logo.png" alt="KEONEDOG Logo" style="width:120px; margin-bottom:20px;">
-  <h1>KEONEDOG 🚀</h1>
-  <p>While Keone Hon builds Monad, we build memes... Together, we get rich, my community brothers! <br> KEONEDOG forever! Keone, Keone!</p>
-
-  <div class="buttons">
-    <a href="https://pump.fun" target="_blank">Buy Now</a>
-    <a href="https://dexscreener.com" target="_blank">View Chart</a>
-    <a href="https://t.me/keonedog" target="_blank">Join Telegram</a>
-    <a href="https://x.com/keonedog" target="_blank">Follow on X</a>
+  <div class="hero-content">
+    <img src="keonedog-logo.png" alt="KEONEDOG Logo">
+    <h1>KEONEDOG 🚀</h1>
+    <p>While Keone Hon builds Monad, we build memes... Together, we get rich, my community brothers!<br> KEONEDOG forever! Keone, Keone!</p>
+    <div class="buttons">
+      <a href="https://pump.fun" target="_blank">Buy Now</a>
+      <a href="https://dexscreener.com" target="_blank">View Chart</a>
+      <a href="https://t.me/keonedog" target="_blank">Join Telegram</a>
+      <a href="https://x.com/keonedog" target="_blank">Follow on X</a>
+    </div>
   </div>
-</header>
+</section>
 
+<!-- NỘI DUNG BÊN DƯỚI -->
 <section id="about">
   <h2>About $KEONEDOG</h2>
   <p>KEONEDOG isn't just another meme coin — it's a movement. We ride the waves of FOMO, community spirit, and humor. Together, we moon. Together, we laugh. Together, KEONE!</p>
@@ -200,19 +197,6 @@ window.addEventListener('scroll', () => {
 scrollBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-
-for (let i = 0; i < 20; i++) {
-  const bubble = document.createElement('div');
-  bubble.classList.add('bubble');
-
-  const size = 30 + Math.random() * 50;
-  bubble.style.width = size + 'px';
-  bubble.style.height = size + 'px';
-
-  bubble.style.left = Math.random() * 100 + 'vw';
-  bubble.style.animationDuration = (10 + Math.random() * 10) + 's';
-  document.body.appendChild(bubble);
-}
 </script>
 
 </body>
